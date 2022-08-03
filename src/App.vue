@@ -1,11 +1,8 @@
 <template>
     <div>
         <HeaderC />
-
         <router-view class="container" />
-
     </div>
-
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import CovidData from '../views/CovidData.vue'
 import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
@@ -10,7 +11,15 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-
+  {
+    path: '/data',
+    name: 'CovidData',
+    component: CovidData
+  },
+  {
+    path:'*',
+    redirect:'/'
+  }
 ]
 
 const router = new VueRouter({
