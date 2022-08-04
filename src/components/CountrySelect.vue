@@ -12,9 +12,11 @@
 
     </div>
 </template>
-    
+
 
 <script>
+import {ref} from "@vue/composition-api";
+
 export default {
     name: 'CountrySelect',
     props: {
@@ -23,19 +25,19 @@ export default {
             required: true,
             default: () => ([])
         }
-    }, data() {
-        return {
-            selected: ''
-        }
-    }, methods: {
-        getCountry() {
-            const country = this.countries.find(country => country.ID === this.selected)
-            this.$emit('country-selected', country)
-        },
-        clearCountry() {
-            this.selected = ''
-            this.$emit('clear-country')
-        }
-    }
+    },setup(props, context){
+      const selected = ref('')
+      const getCountry = () =>{
+        const country = props.countries.find(country => country.ID === selected.value)
+        context.emit('country-selected', country)
+      }
+      const clearCountry = () =>{
+        selected.value = ''
+        context.emit('clear-country')
+      }
+      return{
+        selected, getCountry, clearCountry
+      }
+  }
 }
 </script>

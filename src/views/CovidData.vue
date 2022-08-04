@@ -40,7 +40,6 @@ export default {
     getCountry(country) {
       this.title = country.Country;
       this.stats = country;
-      console.log(this.stats.Country)
     },
     async clearCountryData() {
       this.loading = true

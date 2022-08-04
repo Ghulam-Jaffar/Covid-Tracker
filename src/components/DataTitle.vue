@@ -9,6 +9,7 @@
 
 <script>
 import moment from 'moment';
+import {computed} from '@vue/composition-api';
 
 export default{
     name: 'DataTitle',
@@ -23,12 +24,14 @@ export default{
             required: true,
             default: ''
         }
-    },
-    computed:{
-        timeStamp(){
-            return moment(this.date).format('MMMM Do YYYY, h:mm a');
-        }
-    }
+    },setup(props){
+      const timeStamp = computed(()=>{
+      return moment(props.date).format('MMMM Do YYYY, h:mm a');
+      })
+      return{
+        timeStamp
+      }
+  }
 }
 
 </script>
