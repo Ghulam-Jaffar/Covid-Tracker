@@ -1,6 +1,6 @@
 <template>
 
-  <main v-if="!loading" class="w-screen h-screen">
+  <main v-if="!loading">
     <DataTitleVue :text="title" :date="date" />
     <DataCardsVue :stats="stats" />
     <CountrySelectVue :countries="countries" @country-selected="getCountry" @clear-country="clearCountryData" />
